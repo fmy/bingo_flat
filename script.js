@@ -2,7 +2,15 @@ var BINGO = (function() {
 
   var numbers = [],
 
-  addNumber = function (number) {
+  addNumber = function () {
+    if (numbers.length === 75) return;
+    var number = 0;
+    do {
+      number = Math.floor(Math.random() * 75) + 1;
+      console.log(number + ":" + $.inArray(number, numbers));
+    } while ($.inArray(number, numbers) !== -1);
+    numbers.push(number);
+
     var number_box = $(".number_box");
     var span = $("<div/>")
     .addClass("number pull-left")
@@ -26,21 +34,42 @@ var BINGO = (function() {
       break;
     }
     span.appendTo(number_box).hide().fadeIn();
+  },
+
+  enterFullscreen = function() {
+    var body = document.body;
+    if (body.webkitRequestFullScreen) {
+      body.webkitRequestFullScreen();
+    } else if (body.mozRequestFullScreen) {
+      body.mozRequestFullScreen();
+    } else {
+      alert("can not enter fullscreen");
+    }
+  },
+
+  exitFullscreen = function() {
+    if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else {
+      document.exitFullscreen();
+    }
   };
 
   $(document).on("click", ".choose", function() {
-    if (numbers.length === 75) return;
-    var number = 0;
-    do {
-      number = Math.floor(Math.random() * 75) + 1;
-      console.log(number + ":" + $.inArray(number, numbers));
-    } while ($.inArray(number, numbers) !== -1);
-
-    numbers.push(number);
-    addNumber(number);
+    addNumber();
   })
   .on("click", ".prize", function() {
     alert("no prize yet...");
+  })
+  .on("click", ".icon-resize-full", function() {
+    enterFullscreen();
+    $(this).removeClass("icon-resize-full").addClass("icon-resize-small");
+  })
+  .on("click", ".icon-resize-small", function() {
+    exitFullscreen();
+    $(this).removeClass("icon-resize-small").addClass("icon-resize-full");
   });
 
 })();
