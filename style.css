@@ -39,9 +39,15 @@ html>body {
   color: rgb(8, 52, 97);
 }
 
-.title:hover {
+.title:hover,
+.forkme:hover {
   text-decoration: none;
-  opacity: .7;
+  text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+}
+i:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, .2);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, .2);
 }
 
 /* 部品 */
@@ -94,12 +100,6 @@ html>body {
   background-color: rgb(240, 140, 140);
 }
 
-i:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, .2);
-  box-shadow: 0 0 3px 3px rgba(0, 0, 0, .2);
-}
-
 /* 絶対位置 */
 
 .top-right {
@@ -130,4 +130,12 @@ i:hover {
   padding: 10px;
   background-color: rgb(235, 235, 235);
   overflow-y: auto;
+}
+
+.forkme {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  font-size: 15px;
+  color: rgb(8, 52, 97);
 }
