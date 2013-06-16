@@ -36,6 +36,12 @@ html>body {
 .title {
   font-size: 60px;
   line-height: 60px;
+  color: rgb(8, 52, 97);
+}
+
+.title:hover {
+  text-decoration: none;
+  opacity: .7;
 }
 
 /* 部品 */
