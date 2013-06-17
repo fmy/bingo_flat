@@ -24,13 +24,13 @@ html>body {
   line-height: 20px;
   background-color: rgb(243, 243, 243);
   color: rgb(8, 52, 97);
+  text-align: center;
 }
 
 .main {
   width: 100%;
   height: 100%;
   position: relative;
-  text-align: center;
 }
 
 .title {
@@ -71,13 +71,16 @@ i:hover {
 }
 
 .number {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin: 5px;
   width: 70px;
   height: 70px;
   border-radius: 35px;
+  padding-top: 30px;
   font-size: 45px;
-  line-height: 78px;
   color: rgb(8, 52, 97);
+  float: left;
 }
 
 .number_col1 {
@@ -138,4 +141,33 @@ i:hover {
   left: 10px;
   font-size: 15px;
   color: rgb(8, 52, 97);
+}
+
+.white_background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, .7);
+  display: none;
+}
+
+.slot {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -150px;
+  height: 200px;
+  width: 300px;
+  padding-top: 100px;
+  padding: auto;
+  border-radius: 10px / 5px;
+  background: rgba(0, 0, 0, .6);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, .6);
+  color: #fff;
+  font-size: 150px;
 }

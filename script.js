@@ -2,18 +2,33 @@ var BINGO = (function() {
 
   var numbers = [],
 
-  addNumber = function () {
-    if (numbers.length === 75) return;
-    var number = 0;
-    do {
-      number = Math.floor(Math.random() * 75) + 1;
-      console.log(number + ":" + $.inArray(number, numbers));
-    } while ($.inArray(number, numbers) !== -1);
+  slot = function() {
+    $(".white_background").fadeIn();
+    var i = 0;
+    var interval = setInterval(function() {
+      if (numbers.length === 75) return;
+      var number = 0;
+      do {
+        number = Math.floor(Math.random() * 75) + 1;
+        console.log(number + ":" + $.inArray(number, numbers));
+      } while ($.inArray(number, numbers) !== -1);
+      $(".slot").html(number);
+      if (i++ > 40) {
+        clearInterval(interval);
+        setTimeout(function() {
+          $(".white_background").fadeOut();
+          addNumber(number);
+        }, 1000);
+      }
+    }, 150);
+  },
+
+  addNumber = function(number) {
     numbers.push(number);
 
     var number_box = $(".number_box");
     var span = $("<div/>")
-    .addClass("number pull-left")
+    .addClass("number")
     .attr("id", "number_" + number)
     .append(number);
     switch (Math.floor((number - 1) / 15)) {
@@ -58,7 +73,7 @@ var BINGO = (function() {
   };
 
   $(document).on("click", ".choose", function() {
-    addNumber();
+    slot();
   })
   .on("click", ".prize", function() {
     alert("no prize yet...");
