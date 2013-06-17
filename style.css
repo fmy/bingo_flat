@@ -39,11 +39,16 @@ html>body {
   color: rgb(8, 52, 97);
 }
 
+.title>.number {
+  padding-top: 10px;
+}
+
 .title:hover,
 .forkme:hover {
   text-decoration: none;
   text-shadow: 0 0 3px rgba(0, 0, 0, .5);
 }
+
 i:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, .2);
@@ -105,6 +110,13 @@ i:hover {
 
 /* 絶対位置 */
 
+.top {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -200px;
+}
+
 .top-right {
   position: absolute;
   top: 10px;
@@ -126,7 +138,7 @@ i:hover {
 
 .number_box {
   position: absolute;
-  top: 70px;
+  top: 80px;
   right: 10px;
   bottom: 60px;
   left: 10px;
